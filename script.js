@@ -31,7 +31,7 @@ addCart.addEventListener("click",()=>{
     getId = prompt("enter value 0 to 2");
     producrPrice = products[getId].price;
     productModel = products[getId].model;
-    productDes = products[getId].model
+    productDes = products[getId].productDes 
 
    console.log(producrPrice);
    console.log(productModel);
@@ -40,7 +40,7 @@ addCart.addEventListener("click",()=>{
    cart.push(producrPrice)
    cart.push(productModel)
    cart.push(productDes)
-   console.log((cart));
+   console.log(cart);
   
 
   
