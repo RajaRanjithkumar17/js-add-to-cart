@@ -1,4 +1,6 @@
-var addCart = document.getElementById("addCart"),cart=[],getId,matchId;
+var addCart = document.getElementById("addCart"),
+getId,matchId,cartList ;
+cartList = document.getElementById("cartList");
 
 
 
@@ -7,6 +9,7 @@ products = [{
     price :" Rs.10000",
     productDes : "4 gb RAM , 64 Gb ROM",
     model : "realme 9"
+
 },
 {
     id:1,
@@ -22,30 +25,90 @@ products = [{
 }]
 
 
+    
 
+function hidecartlist(){
+    cartList.style.display ="none"
+ }
+ hidecartlist();
+ function showcartlist(){
+    cartList.style.display ="block"
+ }
 
 
 
 
 addCart.addEventListener("click",()=>{
+    var cart,cnt=1;
+    
+    
+
+    
     getId = prompt("enter value 0 to 2");
-    producrPrice = products[getId].price;
+    productPrice = products[getId].price;
     productModel = products[getId].model;
     productDes = products[getId].productDes 
 
-   console.log(producrPrice);
+   console.log(productPrice);
    console.log(productModel);
    console.log(productDes);
+   
+//    cart.push(productPrice)
+//    cart.push(productModel)
+//    cart.push(productDes)
 
-   cart.push(producrPrice)
-   cart.push(productModel)
-   cart.push(productDes)
+   
+   //cart.push((JSON.stringify({quantity:1})) );
+cart =products [getId]
+//cart.push((JSON.stringify({quantity:1})) );
+
    console.log(cart);
-  
+   
+ if(getId!==cnt){
 
-  
+    cnt=1;
+    var qty = document.createElement("input");
+    qty.setAttribute("value","qty " +cnt )
+ 
+   var items = document.getElementById("items");
+ 
+    var cardText = document.createElement("h5");
+    cardText.setAttribute("class","card-text");
+    cardText.innerText =cart.model;
+    items.appendChild(cardText);
+ 
+    var cardText = document.createElement("h5");
+    cardText.setAttribute("class","card-text");
+    cardText.innerText =cart.price;
+    items.appendChild(cardText);
+ 
+    var cardText = document.createElement("h5");
+    cardText.setAttribute("class","card-text");
+    cardText.innerText =cart.productDes ;
+    items.appendChild(cardText);
+ 
+    var cardText = document.createElement("h5");
+    cardText.setAttribute("class","card-text");
+    cardText.innerText =qty.value;
+    items.appendChild(cardText);
+ 
+    var hr = document.createElement("hr");
+    items.appendChild(hr);
+
+   
+    showcartlist()
+ }
+   
+
+ cartList.addEventListener("click",()=>{
+ 
+     console.log(cart)
+ })
+
     
 
-})
+});
+
+
 
 
